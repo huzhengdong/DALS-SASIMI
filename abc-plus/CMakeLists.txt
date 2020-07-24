@@ -22,5 +22,5 @@ file(GLOB abc_plus_src_files
         "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 add_library(abc_plus STATIC ${abc_plus_src_files})
 target_link_libraries(abc_plus
-        libabc dl pthread readline
+        libabc dl pthread readline -lm -ldl -rdynamic -lreadline -ltermcap -lpthread -lstdc++ -lrt -lstdc++fs
         ${Boost_LIBRARIES})

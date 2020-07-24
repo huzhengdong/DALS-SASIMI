@@ -18,7 +18,8 @@ namespace abc_plus {
     class Framework {
     public:
         void ReadBlif(const std::string &i_file);
-
+        void Mapping();
+        void Framework::ReadLibrary(const std::string &i_file);
         void ReadBench(const std::string &i_file);
 
         void WriteBlif(const std::string &o_file);

@@ -9,8 +9,9 @@
 #ifndef DALS_DALS_H
 #define DALS_DALS_H
 
-#include <map>
+
 #include <abc_plus.h>
+#include "sasimi.h"
 
 using namespace abc_plus;
 
@@ -89,11 +90,12 @@ public:
     //---------------------------------------------------------------------------
     void CalcTruthVec(bool show_progress_bar = false);
 
-    void CalcALCs(const std::vector<ObjPtr> &target_nodes, bool show_progress = false, int top_k = 3);
-
+    
+    void CalcALCs(const std::vector<ObjPtr> &target_nodes);
     double EstSubPairError(ObjPtr target, ObjPtr substitute);
 
     void Run(double err_constraint = 0.15);
+    //void DALS::CalcALCs(const std::vector<ObjPtr> &target_nodes) {
 
     //---------------------------------------------------------------------------
     // Operator Methods, Constructors & Destructors
@@ -114,5 +116,6 @@ private:
 
     DALS();
 };
+//void CalcALCs(const std::vector<ObjPtr> &target_nodes, bool show_progress = false, int top_k = 3);
 
 #endif

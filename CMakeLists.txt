@@ -17,8 +17,10 @@ add_definitions(-Wall -Wno-deprecated-declarations -Wno-unused-variable -Wno-unu
 find_package(Boost REQUIRED COMPONENTS regex system filesystem timer)
 include_directories(${abc_plus_include})
 include_directories(${dals_include})
+include_directories(${PROJECT_SOURCE_DIR}/abc/src)
 file(GLOB dals_src_files "include/*.h" "src/*.cpp")
 add_executable(dals ${dals_src_files})
+link_directories(${PROJECT_SOURCE_DIR}/abc)
 target_link_libraries(dals
         abc_plus
-        ${Boost_LIBRARIES})
+        ${Boost_LIBRARIES} -labc -lm -ldl -rdynamic -lreadline -ltermcap -lpthread -lstdc++ -lrt -lstdc++fs)

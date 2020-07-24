@@ -12,6 +12,8 @@
 #include <abc_api.h>
 #include <string>
 #include <vector>
+#include <unordered_map>
+#include "sasimi.h"
 
 namespace abc_plus {
     //---------------------------------------------------------------------------
@@ -19,7 +21,7 @@ namespace abc_plus {
     //---------------------------------------------------------------------------
     using NtkPtr = abc::Abc_Ntk_t *;
     using ObjPtr = abc::Abc_Obj_t *;
-
+    using LAC    = abc::LAC_t;
     //---------------------------------------------------------------------------
     // Network Functions
     //---------------------------------------------------------------------------
@@ -87,6 +89,7 @@ namespace abc_plus {
     ObjPtr ObjCreateInv(ObjPtr fan_in);
 
     void ObjDelete(ObjPtr obj);
+    void SASIMI_CalcALCs(const NtkPtr target_ntk_, NtkPtr approx_ntk_, std::unordered_map <ObjPtr, LAC> opt_alc_);
 }
 
 #endif

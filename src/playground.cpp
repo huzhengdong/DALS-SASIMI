@@ -96,7 +96,12 @@ void Playground::CriticalGraph() {
             std::cout << ObjName(obj) << "-" << ObjID(obj) << " ";
         std::cout << std::endl;
     }
-    for (auto &[u, vs] : GetCriticalGraph(ntk)) {
+    std::map<int, std::set<int>>::iterator iter;
+    auto critical=GetCriticalGraph(ntk);
+    for (iter=critical.begin(); iter!=critical.end(); iter++ ) {
+	auto u=iter->first;
+	auto vs=iter->second;
+    //for (auto &[u, vs] : GetCriticalGraph(ntk)) {
         std::cout << u << ": ";
         for (auto &v : vs) std::cout << v << " ";
         std::cout << std::endl;
@@ -129,8 +134,12 @@ void Playground::CriticalErrorNetwork() {
                 dinic.AddEdge(u + N, sink, std::numeric_limits<double>::max());
         }
     }
-
-    for (auto &[u, vs] : GetCriticalGraph(ntk)) {
+    std::map<int, std::set<int>>::iterator iter;
+    auto critical=GetCriticalGraph(ntk);
+    for (iter=critical.begin(); iter!=critical.end(); iter++ ) {
+	auto u=iter->first;
+	auto vs=iter->second;
+    //for (auto &[u, vs] : GetCriticalGraph(ntk)) {
         for (auto &v : vs) {
             if (ObjIsPI(NtkObjbyID(ntk, u)))
                 dinic.AddEdge(u, v, std::numeric_limits<double>::max());

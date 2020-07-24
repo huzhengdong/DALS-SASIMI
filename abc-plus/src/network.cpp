@@ -9,6 +9,7 @@
 #include <iostream>
 #include <iomanip>
 #include <network.h>
+#include <sasimi.h>
 
 namespace abc {
     static Abc_Obj_t *PLUS_Abc_NtkDupObj(Abc_Ntk_t *pNtkNew, Abc_Obj_t *pObj, int fCopyName) {
@@ -350,4 +351,9 @@ namespace abc_plus {
     ObjPtr ObjCreateInv(ObjPtr fan_in) { return abc::Abc_NtkCreateNodeInv(ObjHostNtk(fan_in), fan_in); }
 
     void ObjDelete(ObjPtr obj) { abc::Abc_NtkDeleteObj(obj); }
+    void SASIMI_CalcALCs(const NtkPtr target_ntk_, NtkPtr approx_ntk_,std::unordered_map<ObjPtr, LAC> opt_LAC) {
+    Metric_t metricType = Metric_t::ER;
+    SASIMI_Manager_t sasimiMng(target_ntk_, 1000, 1, metricType, 0.01);
+    sasimiMng.CalcLAC(target_ntk_,approx_ntk_,opt_LAC);
+}
 }

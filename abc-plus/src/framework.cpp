@@ -11,11 +11,19 @@
 
 namespace abc_plus {
     static Framework *GlobalFrameworkPtr = nullptr;
+    
 
     void Framework::ReadBlif(const std::string &i_file) {
         CmdExec("read_blif " + i_file);
     }
 
+    void Framework::ReadLibrary(const std::string &i_file) {
+        CmdExec("read_library " + i_file);
+    }
+    void Framework::Mapping()
+   {
+	 CmdExec("amap");
+   }
     void Framework::ReadBench(const std::string &i_file) {
         CmdExec("read_bench " + i_file);
     }

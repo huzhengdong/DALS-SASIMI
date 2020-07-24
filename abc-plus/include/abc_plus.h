@@ -14,5 +14,6 @@
 #include <framework.h>
 #include <simulator.h>
 #include <visual.h>
+#include <sasimi.h>
 
 #endif

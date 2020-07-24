@@ -1,0 +1,11 @@
+/home/huzhengdong/Desktop/DALS/build/CMakeFiles/rebuild_cache.dir
+/home/huzhengdong/Desktop/DALS/build/CMakeFiles/edit_cache.dir
+/home/huzhengdong/Desktop/DALS/build/CMakeFiles/dals.dir
+/home/huzhengdong/Desktop/DALS/build/abc/CMakeFiles/rebuild_cache.dir
+/home/huzhengdong/Desktop/DALS/build/abc/CMakeFiles/libabc.dir
+/home/huzhengdong/Desktop/DALS/build/abc/CMakeFiles/libabc-pic.dir
+/home/huzhengdong/Desktop/DALS/build/abc/CMakeFiles/abc.dir
+/home/huzhengdong/Desktop/DALS/build/abc/CMakeFiles/edit_cache.dir
+/home/huzhengdong/Desktop/DALS/build/abc-plus/CMakeFiles/edit_cache.dir
+/home/huzhengdong/Desktop/DALS/build/abc-plus/CMakeFiles/rebuild_cache.dir
+/home/huzhengdong/Desktop/DALS/build/abc-plus/CMakeFiles/abc_plus.dir

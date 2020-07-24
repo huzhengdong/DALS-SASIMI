@@ -20,13 +20,14 @@ using namespace abc_plus;
 
 void Test();
 
-void Execute();
+void Execute(std::string blif_name);
 
 void PreproBenchtoAigBlif(const path &bench_dir, const path &blif_dir, const std::vector<std::string> &files);
 
 int main(int argc, char *argv[]) {
-    Test();
-    Execute();
+    //Test();
+    std::string blif_name=argv[1];
+    Execute(blif_name);
     return 0;
 }
 
@@ -57,18 +58,24 @@ void Test() {
     std::cout << "---------------------------------------------------------------------------" << std::endl;
 }
 
-void Execute() {
+void Execute(std::string blif_name ) {
     path project_source_dir(PROJECT_SOURCE_DIR);
     path out_dir = project_source_dir / "out";
     path bench_dir = project_source_dir / "benchmark" / "bench";
     path blif_dir = project_source_dir / "benchmark" / "blif";
-    std::vector<std::string> iscas_85 = {"c17", "c432", "c499", "c880", "c1355", "c1908", "c2670", "c3540", "c5315", "c6288", "c7552"};
+    std::string library="mcnc.genlib";
+    //std::vector<std::string> iscas_85 = {"c17", "c432", "c499", "c880", "c1355", "c1908", "c2670", "c3540", "c5315", "c6288", "c7552"};
 
-    std::string blif_name = "c17.blif";
-    path blif_file = blif_dir / blif_name;
+    //std::string blif_name = "c17.blif";
+    path blif_file = blif_dir /blif_name;
+    path library_file=blif_dir /library;
+    
+    //path blif_file=PATH;
 //    PreproBenchtoAigBlif(bench_dir, blif_dir, iscas_85);
     auto framework = Framework::GetFramework();
+    //framework->ReadLibrary(library_file.string());
     framework->ReadBlif(blif_file.string());
+    //framework->Mapping();
     auto ntk = framework->GetNtk();
     auto dals = DALS::GetDALS();
     dals->SetTargetNtk(ntk);
